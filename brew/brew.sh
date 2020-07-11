@@ -1,0 +1,13 @@
+brew install nvm
+brew install terraform
+brew install tmux
+brew install docker
+brew install docker-machine
+brew install jq
+brew install vifm
+brew install postgis
+brew install postgresql
+brew install yarn
+brew install z
+brew install neovim
+brew install python@3.8
