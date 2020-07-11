@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<folders>
+	<folder>
+		<title>tmux</title>
+		<snippets>
+			<snippet>
+				<title>hotkeys</title>
+				<content>C-a d =&gt; detach
+tns  =&gt; new session
+tls =&gt; list session
+tan =&gt; attach with name
+tnw =&gt; create window with name</content>
+			</snippet>
+		</snippets>
+	</folder>
+	<folder>
+		<title>bash</title>
+		<snippets>
+			<snippet>
+				<title>recursive delete folders</title>
+				<content>find . -maxdepth 2 -name node_modules -type d -exec rm -rf {} +</content>
+			</snippet>
+		</snippets>
+	</folder>
+</folders>
