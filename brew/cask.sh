@@ -11,4 +11,8 @@ brew cask install dbeaver-community
 brew cask install apptivate
 brew cask install loom
 brew cask install postman
-
+brew cask install workspaces
+brew cask install google-chrome
+brew cask install intellij-idea-ce
+brew cask install docker
+brew cask install spectacle
