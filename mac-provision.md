@@ -17,6 +17,13 @@
 2. Color
    git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git
 
+
+### shell utils
+  curl wttr.in/CityName
+  cal 2020
+  date
+  ditto
+  
 ### zsh
 Automatic cd: Just type the name of the directory to change to it
 Recursive path expansion: For example “/u/lo/b” expands to “/usr/local/bin”
