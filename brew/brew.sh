@@ -20,3 +20,6 @@ brew install tldr
 brew installl httpie
 brew install htop
 brew install xsv
+brew install thefuck
+brew install zsh-autosuggestions
+brew install zsh-syntax-highlighting
