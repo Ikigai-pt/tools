@@ -14,6 +14,8 @@ brew install python@3.8
 brew install tree
 brew install neovim
 brew install fzf
+brew install ripgrep
+brew install the_silver_searcher
 brew install awscli
 brew install terraform
 brew install tldr
