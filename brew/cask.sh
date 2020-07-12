@@ -16,3 +16,10 @@ brew cask install google-chrome
 brew cask install intellij-idea-ce
 brew cask install docker
 brew cask install spectacle
+brew cask install awscli
+brew cask install terraform
+brew cask install google-cloud-sdk
+brew cask install figma
+brew cask install whatsapp
+brew cask install skype
+brew cask install slack
