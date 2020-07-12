@@ -13,3 +13,10 @@ brew install neovim
 brew install python@3.8
 brew install tree
 brew install neovim
+brew install fzf
+brew install awscli
+brew install terraform
+brew install tldr
+brew installl httpie
+brew install htop
+brew install xsv
