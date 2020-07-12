@@ -27,3 +27,6 @@ brew install zsh-completions
 brew install autojump
 brew install task
 brew install figlet
+brew install lazygit
+brew install bat
+brew install watch
