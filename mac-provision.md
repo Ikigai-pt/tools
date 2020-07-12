@@ -23,10 +23,15 @@
   cal 2020
   date
   ditto
-  
+
+### fonts
+https://github.com/microsoft/cascadia-code/releases
+
 ### zsh
 Automatic cd: Just type the name of the directory to change to it
 Recursive path expansion: For example “/u/lo/b” expands to “/usr/local/bin”
+`take testFolder` is the same as `mkdir testFolder && cd testFolder`
+Use - to quickly navigate between your last and current path
 ### mac customizations
 1. Change caps to control
 
