@@ -11,3 +11,4 @@ brew install yarn
 brew install z
 brew install neovim
 brew install python@3.8
+brew install tree
