@@ -1,2 +1,2 @@
- pip install wpm
+ pip3 install wpm
  
