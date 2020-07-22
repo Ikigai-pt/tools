@@ -1,3 +1,3 @@
- pip3 install wpm
- npm install -g @aws-amplify/cli
- 
+pip3 install wpm
+yarn global add @aws-amplify/cli
+yarn global add @vue/cli
