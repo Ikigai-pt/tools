@@ -103,4 +103,3 @@ commands() {
 alias ys=yarn serve
 alias ya=yarn add
 alias yd=yarn dev
-alias bode="cd /Users/pthiruna/bode/code/vue-serverless"
