@@ -83,6 +83,13 @@ alias ...='cd ../..'
 ## this loads NVM
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
+gro() {
+ branch=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'| tr -d '[:space:]'`;
+ echo $branch;
+ output=`git push --set-upstream origin $branch`;
+ echo $output
+}
+
 ## custom functions
 gpr() {
   if [ $? -eq 0 ]; then
