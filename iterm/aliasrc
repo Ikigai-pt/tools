@@ -1,0 +1,776 @@
+ INFO  Starting development server...
+10% building 0/1 modules 1 active ...ent/index.js?http://192.168.0.20:8080/sockjs-node /Users/pthiruna/bode/code/bode-web/node_modules/webpack/hot/dev-server.js ./src/main.10% building 1/2 modules 1 active ....js /Users/pthiruna/bode/code/bode-web/node_modules/webpack-dev-server/client/index.js?http://192.168.0.20:8080/sockjs-node ./src/main.98% after emitting CopyPlugin
+
+ WARNING  Compiled with 8 warnings                                          9:37:46 AM
+
+Module Warning (from ./node_modules/@vue/cli-plugin-eslint/node_modules/eslint-loader/index.js):
+error: 'FB' is not defined (no-undef) at src/FacebookAuthProvider.js:22:11:
+  20 |       this.initPromise = new Promise(resolve => {
+  21 |         window.fbAsyncInit = function() {
+> 22 |           FB.init({
+     |           ^
+  23 |             appId      : process.env.VUE_APP_FACEBOOK_APP_ID,
+  24 |             cookie     : true,
+  25 |             xfbml      : true,
+
+
+error: 'FB' is not defined (no-undef) at src/FacebookAuthProvider.js:41:7:
+  39 |         resolve(); // Exit in one second in case getLoginStatus never returns
+  40 |       }, 1000);
+> 41 |       FB.getLoginStatus(function(response) {
+     |       ^
+  42 |         if (response.status === 'connected' && response.authResponse) {
+  43 |           resolve({
+  44 |             method: 'Facebook',
+
+
+error: 'FB' is not defined (no-undef) at src/FacebookAuthProvider.js:62:9:
+  60 |           resolve(); // Exit in one second in case logout never returns
+  61 |         }, 1000);
+> 62 |         FB.logout(function() {
+     |         ^
+  63 |           resolve();
+  64 |         });
+  65 |       });
+
+
+error: 'FB' is not defined (no-undef) at src/FacebookAuthProvider.js:83:9:
+  81 |     if (!window.fbAsyncInit) {
+  82 |       window.fbAsyncInit = function() {
+> 83 |         FB.init({
+     |         ^
+  84 |           appId      : process.env.VUE_APP_FACEBOOK_APP_ID,
+  85 |           cookie     : true,
+  86 |           xfbml      : true,
+
+
+error: 'FB' is not defined (no-undef) at src/FacebookAuthProvider.js:94:5:
+  92 |
+  93 |   signIn(callback) {
+> 94 |     FB.login(function(response) {
+     |     ^
+  95 |       let session = null;
+  96 |       if (response.status === 'connected' && response.authResponse) {
+  97 |         session = {
+
+
+5 errors found.
+
+Module Warning (from ./node_modules/@vue/cli-plugin-eslint/node_modules/eslint-loader/index.js):
+error: 'customcheckout' is not defined (no-undef) at src/BillingHelper.js:29:7:
+  27 |   tryLoad(i) {
+  28 |     try {
+> 29 |       customcheckout();
+     |       ^
+  30 |       this.resolveInitPromise();
+  31 |     }
+  32 |     catch (e) {
+
+
+error: 'customcheckout' is not defined (no-undef) at src/BillingHelper.js:43:26:
+  41 |
+  42 |   createPaymentForm(cardNumberId, cvvId, expiryId) {
+> 43 |     var customCheckout = customcheckout();
+     |                          ^
+  44 |
+  45 |     var isCardNumberComplete = false;
+  46 |     var isCVVComplete = false;
+
+
+2 errors found.
+
+Module Warning (from ./node_modules/@vue/cli-plugin-eslint/node_modules/eslint-loader/index.js):
+error: 'gapi' is not defined (no-undef) at src/GoogleAuthProvider.js:23:11:
+  21 |       this.initPromise = new Promise((resolve, reject) => {
+  22 |         window['googleCallback'] = () => {
+> 23 |           gapi.load('auth2', function() {
+     |           ^
+  24 |             gapi.auth2.init({
+  25 |               client_id: process.env.VUE_APP_GOOGLE_CLIENT_ID,
+  26 |               scope: 'profile email'
+
+
+error: 'gapi' is not defined (no-undef) at src/GoogleAuthProvider.js:24:13:
+  22 |         window['googleCallback'] = () => {
+  23 |           gapi.load('auth2', function() {
+> 24 |             gapi.auth2.init({
+     |             ^
+  25 |               client_id: process.env.VUE_APP_GOOGLE_CLIENT_ID,
+  26 |               scope: 'profile email'
+  27 |             }).then(function(googleAuth) {
+
+
+error: 'googleAuth' is defined but never used (no-unused-vars) at src/GoogleAuthProvider.js:27:30:
+  25 |               client_id: process.env.VUE_APP_GOOGLE_CLIENT_ID,
+  26 |               scope: 'profile email'
+> 27 |             }).then(function(googleAuth) {
+     |                              ^
+  28 |               resolve();
+  29 |             }, function(error) {
+  30 |               reject(error);
+
+
+error: 'gapi' is not defined (no-undef) at src/GoogleAuthProvider.js:42:17:
+  40 |   async signIn() {
+  41 |     await this.init();
+> 42 |     let auth2 = gapi.auth2.getAuthInstance();
+     |                 ^
+  43 |
+  44 |     let user = await auth2.signIn();
+  45 |
+
+
+error: 'gapi' is not defined (no-undef) at src/GoogleAuthProvider.js:57:17:
+  55 |   async getSession() {
+  56 |     await this.init();
+> 57 |     let auth2 = gapi.auth2.getAuthInstance();
+     |                 ^
+  58 |     if (auth2.isSignedIn.get()) {
+  59 |       let res = auth2.currentUser.get().getAuthResponse();
+  60 |       return {
+
+
+error: 'gapi' is not defined (no-undef) at src/GoogleAuthProvider.js:71:17:
+  69 |   async signOut() {
+  70 |     await this.init();
+> 71 |     let auth2 = gapi.auth2.getAuthInstance();
+     |                 ^
+  72 |     if (auth2.isSignedIn.get()) {
+  73 |       await auth2.signOut();
+  74 |     }
+
+
+error: 'gapi' is not defined (no-undef) at src/GoogleAuthProvider.js:91:7:
+  89 |   setInitFunction() {
+  90 |     window['googleCallback'] = () => {
+> 91 |       gapi.load('auth2', async function() {
+     |       ^
+  92 |         gapi.auth2.init({
+  93 |           client_id: process.env.VUE_APP_GOOGLE_CLIENT_ID,
+  94 |           scope: 'profile email'
+
+
+error: 'gapi' is not defined (no-undef) at src/GoogleAuthProvider.js:92:9:
+  90 |     window['googleCallback'] = () => {
+  91 |       gapi.load('auth2', async function() {
+> 92 |         gapi.auth2.init({
+     |         ^
+  93 |           client_id: process.env.VUE_APP_GOOGLE_CLIENT_ID,
+  94 |           scope: 'profile email'
+  95 |         });
+
+
+8 errors found.
+
+Module Warning (from ./node_modules/@vue/cli-plugin-eslint/node_modules/eslint-loader/index.js):
+error: 'google' is not defined (no-undef) at src/GmapsHelper.js:38:16:
+  36 |
+  37 |   createMap(el, zoom, zoomControl = true, mapTypeControl = false, mapTypeId = 'roadmap') {
+> 38 |     return new google.maps.Map(el, {
+     |                ^
+  39 |       zoom: zoom,
+  40 |       zoomControlOptions: {
+  41 |         position: google.maps.ControlPosition.RIGHT_TOP
+
+
+error: 'google' is not defined (no-undef) at src/GmapsHelper.js:41:19:
+  39 |       zoom: zoom,
+  40 |       zoomControlOptions: {
+> 41 |         position: google.maps.ControlPosition.RIGHT_TOP
+     |                   ^
+  42 |       },
+  43 |       mapTypeId: mapTypeId,
+  44 |       zoomControl: zoomControl,
+
+
+error: 'google' is not defined (no-undef) at src/GmapsHelper.js:75:16:
+  73 |
+  74 |   createMarker(map, location, draggable = false) {
+> 75 |     return new google.maps.Marker({
+     |                ^
+  76 |       position: location,
+  77 |       map: map,
+  78 |       draggable: draggable,
+
+
+error: 'google' is not defined (no-undef) at src/GmapsHelper.js:80:21:
+  78 |       draggable: draggable,
+  79 |       icon: {
+> 80 |         anchor: new google.maps.Point(0, -16),
+     |                     ^
+  81 |         path: `M 0, 0
+  82 |           m -7, -16
+  83 |           a 7,7 0 1,0 14,0
+
+
+4 errors found.
+
+Module Warning (from ./node_modules/@vue/cli-plugin-eslint/node_modules/eslint-loader/index.js):
+error: 'reject' is defined but never used (no-unused-vars) at src/GuestAuthProvider.js:8:34:
+   6 |
+   7 |   async signIn(emailHash) {
+>  8 |     return new Promise((resolve, reject) => {
+     |                                  ^
+   9 |       resolve({
+  10 |         method: 'Guest',
+  11 |         token: emailHash,
+
+
+1 error found.
+
+Module Warning (from ./node_modules/@vue/cli-plugin-eslint/node_modules/eslint-loader/index.js):
+error: Duplicate key 'directions' (no-dupe-keys) at src/components/listings/UpsertListing.vue:2584:7:
+  2582 |       hoaFeeIncludes: [],
+  2583 |       schoolDistrict: null,
+> 2584 |       directions: null,
+       |       ^
+  2585 |       siteInfluences: [],
+  2586 |       amenities: [],
+  2587 |       commercialUseAllowed: null,
+
+
+error: 'query' is assigned a value but never used (no-unused-vars) at src/components/listings/UpsertListing.vue:2681:9:
+  2679 |   mounted() {
+  2680 |     this.menuCheck();
+> 2681 |     let query = location.search.substring(1).split('&');
+       |         ^
+  2682 |   },
+  2683 |
+  2684 |   created() {
+
+
+error: 'res' is assigned a value but never used (no-unused-vars) at src/components/listings/UpsertListing.vue:3115:11:
+  3113 |       let data = new FormData();
+  3114 |       data.append('files[]', file, file.name);
+> 3115 |       let res = await api.post(`/listings/${this.listingId}/forms/${formName}`, data, {
+       |           ^
+  3116 |         headers: { 'content-type': 'multipart/form-data' }
+  3117 |       });
+  3118 |       this.formNames[formName] = file.name;
+
+
+error: 'res' is assigned a value but never used (no-unused-vars) at src/components/listings/UpsertListing.vue:3435:11:
+  3433 |
+  3434 |       // Splitting result onto pieces containg no more than one large file each
+> 3435 |       let res = [new FormData()];
+       |           ^
+  3436 |
+  3437 |       return prop;
+  3438 |     },
+
+
+4 errors found.
+
+Module Warning (from ./node_modules/@vue/cli-plugin-eslint/node_modules/eslint-loader/index.js):
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:15:2:
+  13 | 		<v-layout>
+  14 |       <v-flex id="content" order-md2 :class="{'pb-5': $vuetify.breakpoint.smAndDown, 'py-5' : $vuetify.breakpoint.mdAndUp}">
+> 15 | 				 <v-container pa-0>
+     | 	^
+  16 | 						<p class="xlarge mb-4"><strong>Enter an address to see comparables</strong></p>
+  17 | 						<v-form ref="comparables" v-model="formValid" lazy-validation>
+  18 | 							<v-container class="filter" px-0>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:127:2:
+  125 | 									<v-flex xs4 lg1>
+  126 | 										<strong>Baths</strong>
+> 127 | 									 	<v-menu offset-y style="width:100%;">
+      | 	^
+  128 | 										<v-btn slot="activator" class="pt-0 px-0 filter" flat>
+  129 | 										<p class="mr-2">{{ filters.baths }}</p><v-icon small color="#009FD4">expand_more</v-icon>
+  130 | 										</v-btn>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:174:2:
+  172 | 							</v-container>
+  173 | 						</v-form>
+> 174 | 				 </v-container>
+      | 	^
+  175 | 				 <v-container v-show="tablesLoaded" px-0 pt-5 :class="{'pb-0': $vuetify.breakpoint.smAndDown, 'pb-5' : $vuetify.breakpoint.mdAndUp}">
+  176 | 					<p class="xlarge mb-4"><v-icon>$vuetify.icons.listingsold</v-icon><strong>Sold listings</strong></p>
+  177 | 					 <v-data-table
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:175:2:
+  173 | 						</v-form>
+  174 | 				 </v-container>
+> 175 | 				 <v-container v-show="tablesLoaded" px-0 pt-5 :class="{'pb-0': $vuetify.breakpoint.smAndDown, 'pb-5' : $vuetify.breakpoint.mdAndUp}">
+      | 	^
+  176 | 					<p class="xlarge mb-4"><v-icon>$vuetify.icons.listingsold</v-icon><strong>Sold listings</strong></p>
+  177 | 					 <v-data-table
+  178 |                 :headers="headers"
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:177:2:
+  175 | 				 <v-container v-show="tablesLoaded" px-0 pt-5 :class="{'pb-0': $vuetify.breakpoint.smAndDown, 'pb-5' : $vuetify.breakpoint.mdAndUp}">
+  176 | 					<p class="xlarge mb-4"><v-icon>$vuetify.icons.listingsold</v-icon><strong>Sold listings</strong></p>
+> 177 | 					 <v-data-table
+      | 	^
+  178 |                 :headers="headers"
+  179 |                 :items="properties.soldListings"
+  180 | 								:pagination.sync="soldPagination"
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:188:2:
+  186 |                 <template template slot="items" slot-scope="props">
+  187 | 								<td><a :href="`https://www.google.com/maps/search/?api=1&query=${props.item.googleAddress}`" target="_blank">{{ props.item.address }}</a></td>
+> 188 | 							 	<td>
+      | 	^
+  189 | 									 	<div v-if="props.item.match >= 94" class="harvey quarters full"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  190 | 										<div v-if="props.item.match >= 82 && props.item.match <= 93" class="harvey reverse quarters three-quarters seven-eighths"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  191 | 										<div v-if="props.item.match >= 69 && props.item.match <= 81" class="harvey reverse quarters three-quarters"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:189:2:
+  187 | 								<td><a :href="`https://www.google.com/maps/search/?api=1&query=${props.item.googleAddress}`" target="_blank">{{ props.item.address }}</a></td>
+  188 | 							 	<td>
+> 189 | 									 	<div v-if="props.item.match >= 94" class="harvey quarters full"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+      | 	^
+  190 | 										<div v-if="props.item.match >= 82 && props.item.match <= 93" class="harvey reverse quarters three-quarters seven-eighths"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  191 | 										<div v-if="props.item.match >= 69 && props.item.match <= 81" class="harvey reverse quarters three-quarters"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  192 | 									 	<div v-if="props.item.match >= 57 && props.item.match <= 68" class="harvey three-quarters five-eighths quarters reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:192:2:
+  190 | 										<div v-if="props.item.match >= 82 && props.item.match <= 93" class="harvey reverse quarters three-quarters seven-eighths"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  191 | 										<div v-if="props.item.match >= 69 && props.item.match <= 81" class="harvey reverse quarters three-quarters"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+> 192 | 									 	<div v-if="props.item.match >= 57 && props.item.match <= 68" class="harvey three-quarters five-eighths quarters reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+      | 	^
+  193 | 										<div v-if="props.item.match >= 44 && props.item.match <= 56" class="harvey half quarters reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  194 | 										<div v-if="props.item.match >= 32 && props.item.match <= 43" class="harvey quarters three-eighths quarter reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  195 | 										<div v-if="props.item.match >= 19 && props.item.match <= 31" class="harvey quarters quarter reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:197:2:
+  195 | 										<div v-if="props.item.match >= 19 && props.item.match <= 31" class="harvey quarters quarter reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  196 | 										<div v-if="props.item.match >= 7 && props.item.match <= 18" class="harvey quarters one-eighth reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+> 197 | 								 		<div v-if="props.item.match >= 1 && props.item.match <= 6" class="harvey"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+      | 	^
+  198 | 										<div v-if="props.item.match <= 0" class="harvey"><div class="center"><strong>0%</strong></div></div>
+  199 | 								 </td>
+  200 |
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:199:2:
+  197 | 								 		<div v-if="props.item.match >= 1 && props.item.match <= 6" class="harvey"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  198 | 										<div v-if="props.item.match <= 0" class="harvey"><div class="center"><strong>0%</strong></div></div>
+> 199 | 								 </td>
+      | 	^
+  200 |
+  201 | 							<td>{{ props.item.distance}}m</td>
+  202 | 							<td>{{ props.item.buildingType }}</td>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:213:2:
+  211 |
+  212 | 						</template>
+> 213 | 					  </v-data-table>
+      | 	^
+  214 | 						<v-flex xs12 py-4 v-if="soldDataLimit == true">
+  215 | 							<p class="large">
+  216 | 								That's it! There aren’t any additional homes that substantially match your search.
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:220:2:
+  218 | 						</v-flex>
+  219 | 						<v-btn :disabled="soldDataLimit" class="bode light mx-0" @click="addSoldRows()"><v-icon class="mr-2">add</v-icon> Load more results</v-btn>
+> 220 | 				 </v-container>
+      | 	^
+  221 |
+  222 |           <v-container v-show="tablesLoaded" px-0>
+  223 |            <p class="xlarge mb-4"><v-icon>$vuetify.icons.listingactive</v-icon><strong>Live listings</strong></p>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:224:2:
+  222 |           <v-container v-show="tablesLoaded" px-0>
+  223 |            <p class="xlarge mb-4"><v-icon>$vuetify.icons.listingactive</v-icon><strong>Live listings</strong></p>
+> 224 | 					  <v-data-table
+      | 	^
+  225 |                 :headers="liveHeaders"
+  226 |                 :items="properties.liveListings"
+  227 |                 disable-initial-sort
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:235:2:
+  233 |                 <template template slot="items" slot-scope="props">
+  234 | 								<td><a :href="`/listings/${props.item.listingId}`" target="_blank">{{props.item.address}}</a></td>
+> 235 | 								 	<td>
+      | 	^
+  236 | 										<div v-if="props.item.match >= 94" class="harvey quarters full"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  237 | 										<div v-if="props.item.match >= 82 && props.item.match <= 93" class="harvey reverse quarters three-quarters seven-eighths"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  238 | 										<div v-if="props.item.match >= 69 && props.item.match <= 81" class="harvey reverse quarters three-quarters"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:239:2:
+  237 | 										<div v-if="props.item.match >= 82 && props.item.match <= 93" class="harvey reverse quarters three-quarters seven-eighths"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  238 | 										<div v-if="props.item.match >= 69 && props.item.match <= 81" class="harvey reverse quarters three-quarters"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+> 239 | 									 	<div v-if="props.item.match >= 57 && props.item.match <= 68" class="harvey three-quarters five-eighths quarters reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+      | 	^
+  240 | 										<div v-if="props.item.match >= 44 && props.item.match <= 56" class="harvey half quarters reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  241 | 										<div v-if="props.item.match >= 32 && props.item.match <= 43" class="harvey quarters three-eighths quarter reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  242 | 										<div v-if="props.item.match >= 19 && props.item.match <= 31" class="harvey quarters quarter reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:244:2:
+  242 | 										<div v-if="props.item.match >= 19 && props.item.match <= 31" class="harvey quarters quarter reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  243 | 										<div v-if="props.item.match >= 7 && props.item.match <= 18" class="harvey quarters one-eighth reverse"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+> 244 | 								 		<div v-if="props.item.match >= 1 && props.item.match <= 6" class="harvey"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+      | 	^
+  245 | 										<div v-if="props.item.match <= 0" class="harvey"><div class="center"><strong>0%</strong></div></div>
+  246 | 								 </td>
+  247 | 							<td>{{ props.item.distance }}m</td>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:246:2:
+  244 | 								 		<div v-if="props.item.match >= 1 && props.item.match <= 6" class="harvey"><div class="center"><strong>{{ props.item.match }}%</strong></div></div>
+  245 | 										<div v-if="props.item.match <= 0" class="harvey"><div class="center"><strong>0%</strong></div></div>
+> 246 | 								 </td>
+      | 	^
+  247 | 							<td>{{ props.item.distance }}m</td>
+  248 | 							<td>{{ props.item.buildingType }}</td>
+  249 | 							<td>{{ props.item.style }}</td>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:258:2:
+  256 |
+  257 | 						</template>
+> 258 | 					  </v-data-table>
+      | 	^
+  259 | 						<v-flex xs12 py-4 v-if="activeDataLimit == true">
+  260 | 							<p class="large">
+  261 | 								That's it! There aren’t any additional homes that substantially match your search.
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:266:2:
+  264 | 						<v-btn :disabled="activeDataLimit" class="bode light mx-0" @click="addActiveRows()"><v-icon class="mr-2">add</v-icon> Load more results</v-btn>
+  265 | 						<v-flex mt-4><p><v-icon class="bulb mr-2">$vuetify.icons.bulb</v-icon><router-link target="_blank" to="/my-abode-overview">Learn how</router-link> we calculate our match score.</p></v-flex>
+> 266 | 				 </v-container>
+      | 	^
+  267 |
+  268 | 				 <v-container id="image-and-text" px-0 class="pt-5">
+  269 | 					 <imageand-text :data="fields.imageAndText"></imageand-text>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:268:2:
+  266 | 				 </v-container>
+  267 |
+> 268 | 				 <v-container id="image-and-text" px-0 class="pt-5">
+      | 	^
+  269 | 					 <imageand-text :data="fields.imageAndText"></imageand-text>
+  270 | 				 </v-container>
+  271 |
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:269:2:
+  267 |
+  268 | 				 <v-container id="image-and-text" px-0 class="pt-5">
+> 269 | 					 <imageand-text :data="fields.imageAndText"></imageand-text>
+      | 	^
+  270 | 				 </v-container>
+  271 |
+  272 |       </v-flex>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:270:2:
+  268 | 				 <v-container id="image-and-text" px-0 class="pt-5">
+  269 | 					 <imageand-text :data="fields.imageAndText"></imageand-text>
+> 270 | 				 </v-container>
+      | 	^
+  271 |
+  272 |       </v-flex>
+  273 |        <v-flex class="hidden-sm-and-down" order-md1 pb-5 px-0 id="manage">
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:290:2:
+  288 |     </v-layout>
+  289 | 		</v-container>
+> 290 | 		 <v-dialog width="70px" persistent v-model="contentLoading">
+      | 	^
+  291 |       <v-card>
+  292 |         <v-btn class="pa-0 ma-0" style="width:100%" fab flat :loading="contentLoading"></v-btn>
+  293 |       </v-card>
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:380:2:
+  378 | 			{ text: 'SqFt', value: 'sqFt' },
+  379 | 			{ text: '', value: '', sortable: false}
+> 380 |     	],
+      |  ^
+  381 |     	liveHeaders: [
+  382 | 			{ text: 'View Listing', value: 'view_listing' },
+  383 | 			{ text: 'Match', value: 'match' },
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:381:2:
+  379 | 			{ text: '', value: '', sortable: false}
+  380 |     	],
+> 381 |     	liveHeaders: [
+      |  ^
+  382 | 			{ text: 'View Listing', value: 'view_listing' },
+  383 | 			{ text: 'Match', value: 'match' },
+  384 | 			{ text: 'Distance', value: 'distance' },
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:479:2:
+  477 |
+  478 |   methods: {
+> 479 | 		 async loadPlaces() {
+      | 	^
+  480 |       const google = await gmapsHelper.init();
+  481 |
+  482 |       // Create the autocomplete object, restricting the search predictions to
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:490:2:
+  488 |       // place fields that are returned to just the address components.
+  489 | 			this.autocomplete.setFields(['address_component', 'geometry']);
+> 490 | 			   this.autocomplete.setComponentRestrictions(
+      | 	^
+  491 | 						{'country': ['ca']}
+  492 | 						)
+  493 | 			if (navigator.geolocation) {
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:572:2:
+  570 |
+  571 | 		async loadResults() {
+> 572 | 			 if (this.$refs.comparables.validate()) {
+      | 	^
+  573 | 				try {
+  574 | 					this.contentLoading = true;
+  575 | 					this.properties = await api.get(`/comparables?lat=${this.filters.lat}&lon=${this.filters.lon}&buildingType=${this.filters.buildingType}&style=${this.filters.style}&yearBuilt=${this.filters.yearBuilt}&beds=${this.filters.beds}&baths=${this.filters.baths}&sqFt=${this.filters.sqFt}&parking=${this.filters.parking}`);
+
+
+error: Unexpected console statement (no-console) at src/views/MarketResearch.vue:579:6:
+  577 | 				finally {
+  578 | 					this.contentLoading = false;
+> 579 | 					console.log(this.properties);
+      | 					^
+  580 | 					//FORMAT VALUES//
+  581 | 					this.properties.soldListings.forEach((item, index) => {
+  582 | 						item.distance = Math.round(item.distance);
+
+
+error: 'index' is defined but never used (no-unused-vars) at src/views/MarketResearch.vue:581:50:
+  579 | 					console.log(this.properties);
+  580 | 					//FORMAT VALUES//
+> 581 | 					this.properties.soldListings.forEach((item, index) => {
+      | 					                                            ^
+  582 | 						item.distance = Math.round(item.distance);
+  583 |     					item.price = item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  584 | 						item.date = new Date(item.date);
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:583:2:
+  581 | 					this.properties.soldListings.forEach((item, index) => {
+  582 | 						item.distance = Math.round(item.distance);
+> 583 |     					item.price = item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      |  ^
+  584 | 						item.date = new Date(item.date);
+  585 | 						let year = item.date.getFullYear();
+  586 | 						let month = item.date.getMonth()+1;
+
+
+error: 'index' is defined but never used (no-unused-vars) at src/views/MarketResearch.vue:597:50:
+  595 | 						item["googleAddress"] = item.address.startsWith('#') ? item.address.substring(item.address.indexOf(',') + 1, item.address.length) : item.address;
+  596 | 					});
+> 597 | 					this.properties.liveListings.forEach((item, index) => {
+      | 					                                            ^
+  598 | 						item.distance = Math.round(item.distance);
+  599 | 						item.price = item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  600 | 						if (item.date != null){
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:616:2:
+  614 | 					this.tablesLoaded = true;
+  615 | 				}
+> 616 | 			 }
+      | 	^
+  617 | 		},
+  618 |
+  619 | 		addSoldRows(){
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:701:2:
+  699 | 			transform:rotate(-40deg);
+  700 | 			width: 19px;
+> 701 |     	height: 14px;
+      |  ^
+  702 |     	margin-top: -10px;
+  703 | 		}
+  704 | 		.harvey.three-quarters:before, .harvey.three-quarters:after {
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:702:2:
+  700 | 			width: 19px;
+  701 |     	height: 14px;
+> 702 |     	margin-top: -10px;
+      |  ^
+  703 | 		}
+  704 | 		.harvey.three-quarters:before, .harvey.three-quarters:after {
+  705 | 			background-color: #75f796;
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:796:2:
+  794 | 			}
+  795 | 			.filter input[type=number]{
+> 796 | 				 border-bottom: 1px solid $bodeblue;
+      | 	^
+  797 | 				 margin-top:12px;
+  798 | 			}
+  799 | 			.filter .v-btn {
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:797:2:
+  795 | 			.filter input[type=number]{
+  796 | 				 border-bottom: 1px solid $bodeblue;
+> 797 | 				 margin-top:12px;
+      | 	^
+  798 | 			}
+  799 | 			.filter .v-btn {
+  800 | 				margin:0;
+
+
+error: Mixed spaces and tabs (no-mixed-spaces-and-tabs) at src/views/MarketResearch.vue:802:2:
+  800 | 				margin:0;
+  801 | 				min-width: 0;
+> 802 |     		width: 100%;
+      |  ^
+  803 | 				p {
+  804 | 					position:absolute;
+  805 | 					left:0;
+
+
+38 errors found.
+
+Module Warning (from ./node_modules/@vue/cli-plugin-eslint/node_modules/eslint-loader/index.js):
+error: Parsing error: Unexpected token import at src/router.js:19:7:
+  17 |     // which is lazy-loaded when the route is visited.
+  18 |     component: resolve =>
+> 19 |       import(/* webpackChunkName: "${view}" */ `./views/${view}.vue`).then(
+     |       ^
+  20 |         resolve
+  21 |       )
+  22 |   };
+
+
+1 error found.
+
+You may use special comments to disable some warnings.
+Use // eslint-disable-next-line to ignore the next line.
+Use /* eslint-disable */ to ignore all warnings in a file.
+
+  App running at:
+  - Local:   http://localhost:8080/
+  - Network: http://192.168.0.20:8080/
+
+  Note that the development build is not optimized.
+  To create a production build, run yarn build.
+
+(node:19770) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 uncaughtException listeners added to [process]. Use emitter.setMaxListeners() to increase limit
+Getting image from DDF for Id: 21907550, position: 1, size: m
+Authenticating DDF feed
+Getting image from DDF for Id: 21984093, position: 1, size: m
+Authenticating DDF feed
+Getting image from DDF for Id: 21984092, position: 1, size: m
+Authenticating DDF feed
+Getting image from DDF for Id: 21984090, position: 1, size: m
+Authenticating DDF feed
+Getting image from DDF for Id: 21984083, position: 1, size: m
+Authenticating DDF feed
+Getting image from DDF for Id: 21983958, position: 1, size: m
+Authenticating DDF feed
+Getting image from DDF for Id: 21907559, position: 1, size: m
+Authenticating DDF feed
+Getting image from DDF for Id: 21908046, position: 1, size: m
+Authenticating DDF feed
+Getting image from DDF for Id: 21907559, position: 1, size: h
+Authenticating DDF feed
+Getting image from DDF for Id: 21907559, position: 2, size: h
+Authenticating DDF feed
+Getting image from DDF for Id: 21907559, position: 3, size: h
+Authenticating DDF feed
+Getting image from DDF for Id: 21907559, position: 4, size: h
+Authenticating DDF feed
+Getting image from DDF for Id: 21907559, position: 5, size: h
+Authenticating DDF feed
+^C
+
+~/bode/code/bode-web BSP-659-saved-search-setup-notification-account 32m 50s
+[I] ❯ clear                                                                  [INSERT]
+
+~/bode/code/bode-web BSP-659-saved-search-setup-notification-account
+[I] ❯ awscb dev BSP-659-saved-search-setup-notification-account              [INSERT]
+BUILD	arn:aws:codebuild:us-west-2:384501692319:build/back-end-dev:ded20f71-cb5f-4a0c-aba4-a182d548d991	False	720	IN_PROGRESS	QUEUED	arn:aws:kms:us-west-2:384501692319:alias/aws/s3	back-end-dev:ded20f71-cb5f-4a0c-aba4-a182d548d991	Pradeep	back-end-dev	480	arn:aws:iam::384501692319:role/codebuild	BSP-659-saved-search-setup-notification-account	2020-08-05T10:10:24.867000-06:00	60
+ARTIFACTS
+CACHE	NO_CACHE
+ENVIRONMENT	BUILD_GENERAL1_SMALL	aws/codebuild/nodejs:8.11.0	CODEBUILD	False	LINUX_CONTAINER
+LOGS	arn:aws:logs:us-west-2:384501692319:log-group:null:log-stream:null	https://console.aws.amazon.com/cloudwatch/home?region=us-west-2#logEvent:group=null;stream=null
+CLOUDWATCHLOGS	ENABLED
+S3LOGS	False	DISABLED
+PHASES	0	2020-08-05T10:10:24.936000-06:00	SUCCEEDED	SUBMITTED	2020-08-05T10:10:24.867000-06:00
+PHASES				QUEUED	2020-08-05T10:10:24.936000-06:00
+SOURCE	version: 0.2
+
+phases:
+  build:
+    commands:
+      - cd backend
+      - npm install --no-package-lock
+      - npm run test
+      - rm -rf node_modules
+      - npm install --production --no-package-lock
+      - zip -r -q artifact.zip .
+      - aws lambda update-function-code --function-name back-end-dev --zip-file fileb://artifact.zip	1	False	https://pradeep_bode@bitbucket.org/bode-canada/bode-web.git	False	BITBUCKET
+GITSUBMODULESCONFIG	False
+BUILD	arn:aws:codebuild:us-west-2:384501692319:build/front-end-dev:5b2fc859-f9b5-4f0c-a9a4-c41dbc97bbb7	False	739	IN_PROGRESS	QUEUED	arn:aws:kms:us-west-2:384501692319:alias/aws/s3	front-end-dev:5b2fc859-f9b5-4f0c-a9a4-c41dbc97bbb7	Pradeep	front-end-dev	480	arn:aws:iam::384501692319:role/codebuild	BSP-659-saved-search-setup-notification-account	2020-08-05T10:10:25.902000-06:00	60
+ARTIFACTS	True	arn:aws:s3:::glo-front-end-dev	False
+CACHE	NO_CACHE
+ENVIRONMENT	BUILD_GENERAL1_SMALL	aws/codebuild/nodejs:10.14.1	CODEBUILD	False	LINUX_CONTAINER
+   10 alias d="cd ~/code && cd "
+   11 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall❯
+   12 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall ❯
+   13 alias deleteDSFiles="find . -name '.DS_Store' -type f -delete"
+   14 alias npm-update="npx npm-check -u";
+   15 alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
+   16
+   17 ## git aliases
+   18 function gc { git commit -m "$@"; }
+   19 alias gcm="git checkout master";
+   20 alias gs="git status";
+   21 alias gpull="git pull";
+   22 alias gf="git fetch";
+   23 alias gfa="git fetch --all";
+   24 alias gf="git fetch origin";
+   25 alias gpush="git push";
+   26 alias gd="git diff";
+   27 alias ga="git add .";
+   28 alias gcoa="git checkout -- .";
+   29 alias gb="git branch";
+   30 alias gbr="git branch remote"
+   31 alias gfr="git remote update"
+   32 alias gcb="git checkout -B "
+   33 alias grf="git reflog";
+   34 alias grh="git reset HEAD~" # last commit
+   35 alias gac="git add . && git commit -a -m "
+   36 alias gpun="git push --set-upstream origin "
+   37 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)❯
+   38 alias gpu="git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
+   39 alias gdb="git branch -d "
+   40 ## checkout a new remote branch (exists remote, not locally)
+   41 ## git checkout -b LocalName origin/remotebranchname (checkout a remote branch)
+   42
+   43 ## npm aliases
+   44 alias ni="npm install";
+   45 alias nrs="npm run start -s --";
+   46 alias nrb="npm run build -s --";
+   47 alias nrd="npm run dev -s --";
+   48 alias nrt="npm run test -s --";
+   49 alias nrtw="npm run test:watch -s --";
+   50 alias nrv="npm run validate -s --";
+   51 alias rmn="rm -rf node_modules";
+   52 alias flush-npm="rm -rf node_modules && npm i && echo NPM is done";
+ /Users/pthiruna/.config/aliasrc
+[coc.nvim]Error on execute python script: request error nvim_command - Vim(pyxfile):E3
+19: No "python3" provider found. Run ":checkhealth provider"
