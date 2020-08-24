@@ -34,3 +34,5 @@ brew install figlet
 brew install lazygit
 brew install bat
 brew install watch
+brew install watchman
+
