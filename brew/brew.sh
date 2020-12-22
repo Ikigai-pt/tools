@@ -35,4 +35,6 @@ brew install lazygit
 brew install bat
 brew install watch
 brew install watchman
+brew install flutter
+brew install cocoapods
 
