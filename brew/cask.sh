@@ -23,4 +23,4 @@ brew cask install skype
 brew cask install slack
 brew cask install alfred
 brew tap homebrew/cask-fonts && brew cask install  font-hack-nerd-font
-brew cask install android-sdk
+brew cask install android-sdk // set ANDROID_SDK_ROOT=/Users/{abc}/Library/Android/sdk
